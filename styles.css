@@ -11,7 +11,7 @@ body {
 }
 
 .gradient-bg {
-    background: linear-gradient(135deg, #E0E1DD 0%, #748CAB 100%);
+    background: linear-gradient(135deg, #748CAB 0%, #3E5C76 100%);
 }
 
 .card {
@@ -42,7 +42,7 @@ body {
     border-radius: 0.5rem;
 }
 
-.btn-light:hover {
+.btn-light {
     background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
     border: none;
 }

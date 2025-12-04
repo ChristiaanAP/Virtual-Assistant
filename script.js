@@ -23,13 +23,18 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     const form = e.target;
     const formData = new FormData(form);
     const url = form.action;
+
+    console.log('Submitting to:', url);
+    console.log('Form data:', Array.from(formData.entries())); // Log data being sent
+
     // Submit data via Fetch
     fetch(url, {
         method: 'POST',
         body: formData,
         mode: 'no-cors' // Allows cross-origin POST to Google Forms
     })
-    .then(() => {
+    .then(response => {
+        console.log('Response status:', response.status); // Should be 0 for no-cors
         // Success: Clear fields and show notification
         document.getElementById('name').value = '';
         document.getElementById('email').value = '';

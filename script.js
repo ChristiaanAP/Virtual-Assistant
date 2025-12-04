@@ -17,6 +17,15 @@ form.addEventListener("submit", (e) => {
     }
     fetch(scriptURL, { method: "POST", body: formData })
         .then((response) => {
+            // Clear all fields after successful submission
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("contact_number").value = "";
+            document.getElementById("gender").value = "";
+            document.getElementById("message").value = "";
+            document.getElementById("age").checked = false;
+            document.getElementById("ex").checked = false;
+            
             swal("Done", "Submitted Successfully.", "success");
         })
         .catch((error) => {

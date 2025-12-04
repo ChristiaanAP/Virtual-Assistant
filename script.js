@@ -22,10 +22,10 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent default form submission (which opens the form)
     const form = e.target;
     const formData = new FormData(form);
-    const url = form.action;
+    const url = https://script.google.com/macros/s/AKfycbzP7LENbUa-GZBY4FI9-IVHYjm3k7VhNABZUx8LCMn2iQt8TdjLLpMl21NWExYCAsBqLw/exec;
 
-    console.log('Submitting to:', url);
-    console.log('Form data:', Array.from(formData.entries())); // Log data being sent
+    // console.log('Submitting to:', url);
+    // console.log('Form data:', Array.from(formData.entries())); // Log data being sent
 
     // Submit data via Fetch
     fetch(url, {

@@ -150,19 +150,22 @@
         </div>
     </section>
 
-    <!-- Contact Form Section -->
+  <!-- Contact Form Section -->
 <section id="contact" class="py-5 gradient-bg text-white">
     <div class="container">
         <h2 class="text-center fw-bold mb-4">Get in Touch</h2>
-        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScFiwJHxhy2vOb-K8twyVw69BFoyxFLc40czLaUnFY5tNaxJQ/formResponse" method="POST" target="_blank" class="row g-3 justify-content-center">
+        <div id="form-notification" class="alert alert-success" style="display: none;" role="alert">
+            Thank you! Your message has been submitted successfully.
+        </div>
+        <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLScFiwJHxhy2vOb-K8twyVw69BFoyxFLc40czLaUnFY5tNaxJQ/formResponse" method="POST" class="row g-3 justify-content-center">
             <div class="col-md-6">
-                <input type="text" name="584697787" class="form-control" placeholder="Your Name" required>
+                <input type="text" name="entry.584697787" id="name" class="form-control" placeholder="Your Name" required>
             </div>
             <div class="col-md-6">
-                <input type="email" name="1326674411" class="form-control" placeholder="Your Email" required>
+                <input type="email" name="entry.1326674411" id="email" class="form-control" placeholder="Your Email" required>
             </div>
             <div class="col-12">
-                <textarea name="2068399848" class="form-control" rows="4" placeholder="Tell me about your needs..." required></textarea>
+                <textarea name="entry.2068399848" id="message" class="form-control" rows="4" placeholder="Tell me about your needs..." required></textarea>
             </div>
             <div class="col-12 text-center">
                 <button type="submit" class="btn btn-light btn-lg fw-bold">Send Message</button>

@@ -16,6 +16,38 @@ function toggleDetails(id) {
         element.style.display = 'none';
     }
 }
+
+// Add this new function for form submission
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent default form submission (which opens the form)
+    const form = e.target;
+    const formData = new FormData(form);
+    const url = form.action;
+    // Submit data via Fetch
+    fetch(url, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Allows cross-origin POST to Google Forms
+    })
+    .then(() => {
+        // Success: Clear fields and show notification
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('message').value = '';
+        const notification = document.getElementById('form-notification');
+        notification.style.display = 'block';
+        // Hide notification after 5 seconds
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 5000);
+    })
+    .catch(error => {
+        console.error('Submission error:', error);
+        // Optional: Show error notification (add another alert div for errors if needed)
+        alert('There was an error submitting your message. Please try again.');
+    });
+});
+
 // Smooth scrolling for CTAs
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

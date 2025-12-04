@@ -1,3 +1,30 @@
+const scriptURL = "https://script.google.com/macros/s/AKfycbxGpmS2P7KcyQyn-Ng5aFSm4Xn_jxXXOoPsmOFbRIxh0GScBFsYfm8AEaLOL6v3wwCT/exec";
+const form = document.forms["submit-to-google-sheet"];
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    var formData = new FormData(form);
+    var ex = document.getElementById("ex").checked;
+    var age = document.getElementById("age").checked;
+    if (age) {
+        formData.append("age", "Yes");
+    } else {
+        formData.append("age", "No");
+    }
+    if (ex) {
+        formData.append("ex", "Yes");
+    } else {
+        formData.append("ex", "No");
+    }
+    fetch(scriptURL, { method: "POST", body: formData })
+        .then((response) => {
+            swal("Done", "Submitted Successfully.", "success");
+        })
+        .catch((error) => {
+            swal("Error", "Something went wrong. please try again!", "error");
+        });
+});
+
+
 function toggleDetails(id) {
     const element = document.getElementById(id);
     const allDetails = document.querySelectorAll('.service-details');
@@ -17,7 +44,7 @@ function toggleDetails(id) {
     }
 }
 
-// Add this new function for form submission
+/* Add this new function for form submission
 document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent default form submission (which opens the form)
     const form = e.target;
@@ -51,7 +78,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
         // Optional: Show error notification (add another alert div for errors if needed)
         alert('There was an error submitting your message. Please try again.');
     });
-});
+});*/
 
 // Smooth scrolling for CTAs
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
